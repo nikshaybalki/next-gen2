@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-background text-textMain antialiased;
+  margin: 0;
+  font-family: 'Inter', sans-serif; /* Clean minimalist font */
+}
+
+::selection {
+  background-color: #00F7FF;
+  color: #000;
+}
+
+/* Custom scrollbar for that Cyber look */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #00F7FF;
+  border-radius: 10px;
+}
