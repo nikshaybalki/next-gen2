@@ -7,6 +7,21 @@ export default {
         background: "#000000",
         accent: "#00F7FF", // Electric Cyan
         textMain: "#FFFFFF",
+        
+        // Academics Section Specific Colors
+        'academics-bg': '#F7F6F2',
+        'academics-surface': '#FFFFFF',
+        'academics-border': '#E8E6E0',
+        'academics-text': '#1A1A1A',
+        'academics-text-secondary': '#6B6B6B',
+        'academics-text-muted': '#9A9A9A',
+        'academics-accent': '#00D4C8',
+        'academics-success': '#2D9F6E',
+      },
+      fontFamily: {
+        serif: ['"Playfair Display"', 'serif'],
+        sans: ['"Inter"', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
       },
       // Adding custom neon shadows for the "Glowing" effect
       boxShadow: {
