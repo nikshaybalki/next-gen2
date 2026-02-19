@@ -1,362 +1,137 @@
-// import { Link } from 'react-router-dom';
 
-// const Navbar = () => {
-//   return (
-//     <nav className="flex justify-between items-center px-8 py-6 border-b border-[#00F7FF]/10 sticky top-0 bg-black/80 backdrop-blur-md z-50">
-//       <Link to="/" className="text-2xl font-black tracking-tighter text-white">
-//         NEXGEN<span className="text-accent drop-shadow-[0_0_8px_#00F7FF]">ACADEMY</span>
-//       </Link>
-      
-//       <div className="hidden md:flex space-x-10 text-sm font-bold tracking-widest uppercase">
-//         <Link to="/courses" className="hover:text-accent transition-all duration-300">Courses</Link>
-//         <Link to="/digital-products" className="hover:text-accent transition-all duration-300">Digital Products</Link>
-//         <Link to="/contact" className="hover:text-accent transition-all duration-300">Contact Us</Link>
-//       </div>
-//     </nav>
-//   );
-// };
-// export default Navbar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { motion } from 'framer-motion';
-// import { Link, useLocation } from 'react-router-dom';
-
-// const Navbar = () => {
-//   const location = useLocation();
-  
-//   const navLinks = [
-//     { name: "Home", path: "/" },
-//     { name: "Courses", path: "/courses" },
-//     { name: "The Vault", path: "/vault" },
-//     { name: "Contact", path: "/contact" },
-//   ];
-
-//   return (
-//     <motion.nav 
-//       initial={{ y: -100 }}
-//       animate={{ y: 0 }}
-//       className="fixed top-0 left-0 w-full z-[100] px-6 py-4"
-//     >
-//       <div className="max-w-7xl mx-auto flex justify-between items-center bg-black/40 backdrop-blur-xl border border-white/10 rounded-full px-8 py-3">
-        
-//         {/* LOGO */}
-//         <Link to="/" className="group">
-//           <div className="text-xl font-black tracking-tighter text-white">
-//             NEXGEN <span className="text-accent group-hover:shadow-neon transition-all">ACADEMY</span>
-//           </div>
-//         </Link>
-
-//         {/* NAVIGATION LINKS */}
-//         <div className="hidden md:flex items-center gap-8">
-//           {navLinks.map((link) => (
-//             <Link 
-//               key={link.name} 
-//               to={link.path} 
-//               className="relative group text-[10px] font-black uppercase tracking-[0.2em]"
-//             >
-//               <span className={`${location.pathname === link.path ? 'text-accent' : 'text-gray-400'} group-hover:text-white transition-colors`}>
-//                 {link.name}
-//               </span>
-              
-//               {/* Active Indicator Underline */}
-//               {location.pathname === link.path && (
-//                 <motion.div 
-//                   layoutId="nav-underline"
-//                   className="absolute -bottom-1 left-0 w-full h-[2px] bg-accent shadow-neon"
-//                 />
-//               )}
-//             </Link>
-//           ))}
-//         </div>
-
-//         {/* JOIN BUTTON */}
-//         <motion.button 
-//           whileHover={{ scale: 1.05 }}
-//           whileTap={{ scale: 0.95 }}
-//           className="bg-white text-black text-[10px] font-black px-6 py-2 rounded-full uppercase tracking-widest hover:bg-accent transition-all shadow-lg"
-//         >
-//           Join Elite
-//         </motion.button>
-//       </div>
-//     </motion.nav>
-//   );
-// };
-
-// export default Navbar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { useState } from 'react';
-// import { motion, AnimatePresence } from 'framer-motion';
-// import { Link, useLocation } from 'react-router-dom';
-// import { Menu, X, ChevronRight } from 'lucide-react';
-
-// const Navbar = () => {
-//   const [isOpen, setIsOpen] = useState(false);
-//   const location = useLocation();
-  
-//   const navLinks = [
-//     { name: "Home", path: "/" },
-//     { name: "Courses", path: "/courses" },
-//     { name: "The Vault", path: "/vault" },
-//     { name: "Contact", path: "/contact" },
-//   ];
-
-//   const toggleMenu = () => setIsOpen(!isOpen);
-
-//   return (
-//     <>
-//       <motion.nav 
-//         initial={{ y: -100 }}
-//         animate={{ y: 0 }}
-//         className="fixed top-0 left-0 w-full z-[100] px-4 py-4"
-//       >
-//         <div className="max-w-7xl mx-auto flex justify-between items-center bg-black/60 backdrop-blur-2xl border border-white/10 rounded-full px-6 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-          
-//           {/* LOGO */}
-//           <Link to="/" className="group flex items-center">
-//             <div className="text-xl font-black tracking-tighter text-white">
-//               NEXGEN <span className="text-accent">ACADEMY</span>
-//             </div>
-//           </Link>
-
-//           {/* DESKTOP LINKS (Hidden on Mobile) */}
-//           <div className="hidden md:flex items-center gap-8">
-//             {navLinks.map((link) => (
-//               <Link 
-//                 key={link.name} 
-//                 to={link.path} 
-//                 className="relative group text-[10px] font-black uppercase tracking-[0.2em]"
-//               >
-//                 <span className={`${location.pathname === link.path ? 'text-accent' : 'text-gray-400'} group-hover:text-white transition-colors`}>
-//                   {link.name}
-//                 </span>
-//               </Link>
-//             ))}
-//           </div>
-
-//           {/* --- MOBILE TRIGGER (VISIBLE ONLY ON MOBILE) --- */}
-//           <div className="md:hidden flex items-center">
-//             <button 
-//               onClick={toggleMenu}
-//               aria-label="Toggle Menu"
-//               className="relative z-[150] p-2 bg-white/5 rounded-full border border-white/10 text-white hover:text-accent active:scale-90 transition-all"
-//             >
-//               {isOpen ? <X size={24} strokeWidth={3} /> : <Menu size={24} strokeWidth={3} />}
-//             </button>
-//           </div>
-
-//           {/* JOIN BUTTON (Desktop only) */}
-//           <button className="hidden md:block bg-white text-black text-[10px] font-black px-6 py-2 rounded-full uppercase tracking-widest hover:bg-accent transition-all">
-//             Join Elite
-//           </button>
-//         </div>
-//       </motion.nav>
-
-//       {/* MOBILE SIDEBAR */}
-//       <AnimatePresence mode="wait">
-//         {isOpen && (
-//           <>
-//             {/* Backdrop */}
-//             <motion.div 
-//               initial={{ opacity: 0 }}
-//               animate={{ opacity: 1 }}
-//               exit={{ opacity: 0 }}
-//               onClick={toggleMenu}
-//               className="fixed inset-0 bg-black/90 backdrop-blur-md z-[110] md:hidden"
-//             />
-
-//             {/* Slide-out Menu */}
-//             <motion.div 
-//               initial={{ x: '100%' }}
-//               animate={{ x: 0 }}
-//               exit={{ x: '100%' }}
-//               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-//               className="fixed top-0 right-0 h-full w-[85%] bg-[#050505] border-l border-white/10 z-[120] md:hidden p-10 flex flex-col"
-//             >
-//               <div className="mt-20 flex flex-col gap-8">
-//                 {navLinks.map((link, idx) => (
-//                   <motion.div
-//                     key={link.name}
-//                     initial={{ opacity: 0, x: 20 }}
-//                     animate={{ opacity: 1, x: 0 }}
-//                     transition={{ delay: idx * 0.1 }}
-//                   >
-//                     <Link 
-//                       to={link.path} 
-//                       onClick={toggleMenu}
-//                       className="flex items-center justify-between group"
-//                     >
-//                       <span className={`text-4xl font-black uppercase tracking-tighter ${location.pathname === link.path ? 'text-accent' : 'text-white'}`}>
-//                         {link.name}
-//                       </span>
-//                       <ChevronRight className={location.pathname === link.path ? 'text-accent' : 'text-gray-800'} />
-//                     </Link>
-//                   </motion.div>
-//                 ))}
-//               </div>
-
-//               <div className="mt-auto pb-10">
-//                 <button className="w-full bg-accent text-black font-black py-5 rounded-2xl shadow-neon uppercase tracking-widest">
-//                   Access Academy
-//                 </button>
-//               </div>
-//             </motion.div>
-//           </>
-//         )}
-//       </AnimatePresence>
-//     </>
-//   );
-// };
-
-// export default Navbar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronRight } from 'lucide-react';
+import { Menu as MenuIcon, X } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
+import AuthOverlay from './AuthOverlay';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
-  
-  const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "Courses", path: "/courses" },
-    { name: "Academics", path: "/academics" }, // NEW LINK
-    { name: "The Vault", path: "/vault" },
-    { name: "Contact", path: "/contact" },
-  ];
+  const { isLoggedIn, signOut, isAuthOpen, openAuth, closeAuth } = useAuth();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest > 50) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  });
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "Courses", path: "/courses" },
+    { name: "Academy", path: "/academics" },
+    { name: "The Vault", path: "/vault" },
+  ];
+
   return (
     <>
-      <motion.nav 
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        className="fixed top-0 left-0 w-full z-[100] px-4 py-4"
-      >
-        <div className="max-w-7xl mx-auto flex justify-between items-center bg-black/60 backdrop-blur-2xl border border-white/10 rounded-full px-6 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-          
-          {/* LOGO */}
-          <Link to="/" className="group flex items-center">
-            <div className="text-xl font-black tracking-tighter text-white">
-              NEXGEN <span className="text-accent">ACADEMY</span>
-            </div>
-          </Link>
+      <div className="fixed top-0 left-0 w-full z-[100] px-6 py-6 font-sans pointer-events-none">
 
-          {/* DESKTOP LINKS */}
-          <div className="hidden md:flex items-center gap-8">
+        {/* 1. STATIC LOGO (Top Left) */}
+        <Link to="/" className="absolute top-6 left-6 z-[110] group flex items-center pointer-events-auto">
+          <div className="text-2xl font-clash tracking-tight text-white mix-blend-difference">
+            <span className="font-bold">NEXGEN</span> <span className="font-medium tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r from-accent to-white ml-2">ACADEMY</span>
+          </div>
+        </Link>
+
+        {/* 2. FLOATING MENU PILL (Center) */}
+        <div className="flex justify-center w-full">
+          <motion.nav
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            layout
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            style={{ backdropFilter: "blur(16px)" }}
+            className={`
+              pointer-events-auto
+              border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)] bg-black/40
+              flex items-center justify-center gap-8 md:gap-14
+              transition-all duration-500 ease-in-out
+              ${isScrolled 
+                ? 'rounded-full px-16 py-5 mt-0 w-fit min-w-[600px]' 
+                : 'rounded-2xl px-12 py-4 mt-2 w-[min(95%,1200px)]'
+              }
+            `}
+          >
             {navLinks.map((link) => (
-              <Link key={link.name} to={link.path} className="relative group text-[10px] font-black uppercase tracking-[0.2em]">
-                <span className={`${location.pathname === link.path ? 'text-accent' : 'text-gray-400'} group-hover:text-white transition-colors`}>
-                  {link.name}
-                </span>
+              <Link
+                key={link.name}
+                to={link.path}
+                className={`
+                  font-bold text-gray-300 hover:text-accent transition-colors tracking-widest
+                  ${isScrolled ? 'text-sm' : 'text-base'}
+                `}
+              >
+                {link.name}
               </Link>
             ))}
-          </div>
+          </motion.nav>
+        </div>
 
-          {/* MOBILE TRIGGER (Hamburger Icon) */}
-          <div className="md:hidden flex items-center">
-            <button 
-              onClick={toggleMenu}
-              className="p-2 bg-white/5 rounded-full border border-white/10 text-white hover:text-accent transition-all"
+        {/* 3. STATIC AUTH & UTILS (Top Right) */}
+        <div className="absolute top-6 right-6 z-[110] flex items-center gap-4 pointer-events-auto">
+          {isLoggedIn ? (
+            <div className="hidden md:flex items-center gap-4">
+              <Link
+                to="/profile"
+                className="bg-accent text-black font-black text-[10px] px-6 py-2 rounded-full uppercase tracking-widest hover:shadow-neon transition-all"
+              >
+                Profile
+              </Link>
+              <button
+                onClick={() => signOut()}
+                className="text-gray-400 hover:text-white text-[8px] font-black uppercase tracking-widest"
+              >
+                Sign Out
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={openAuth}
+              className="hidden md:block bg-white text-black font-black text-[10px] px-6 py-2 rounded-full uppercase tracking-widest hover:bg-accent transition-all"
             >
-              <Menu size={24} strokeWidth={2.5} />
+              Join Elite
+            </button>
+          )}
+
+          <div className="md:hidden">
+            <button
+              onClick={toggleMenu}
+              className="p-2 bg-white/5 rounded-full border border-white/10 text-white"
+            >
+              {isOpen ? <X size={24} /> : <MenuIcon size={24} />}
             </button>
           </div>
-
-          <button className="hidden md:block bg-white text-black text-[10px] font-black px-6 py-2 rounded-full uppercase tracking-widest hover:bg-accent transition-all">
-            Join Elite
-          </button>
         </div>
-      </motion.nav>
+      </div>
 
-      {/* MOBILE SIDEBAR */}
+      <AuthOverlay isOpen={isAuthOpen} onClose={closeAuth} />
+
+      {/* MOBILE SIDEBAR (Preserved) */}
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Backdrop Overlay */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={toggleMenu}
-              className="fixed inset-0 bg-black/90 backdrop-blur-md z-[110] md:hidden"
+              className="fixed inset-0 bg-black/90 backdrop-blur-xl z-[90]"
             />
-
-            {/* Slide-out Menu */}
-            <motion.div 
+            <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-[85%] bg-[#050505] border-l border-white/10 z-[120] md:hidden flex flex-col"
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 w-full h-screen bg-[#050505] z-[95] flex flex-col"
             >
-              {/* --- SIDEBAR HEADER WITH CROSS ICON --- */}
-              <div className="flex justify-between items-center p-8 border-b border-white/5">
-                <span className="text-accent font-black tracking-widest text-[10px] uppercase">Menu</span>
-                <button 
-                  onClick={toggleMenu}
-                  className="p-2 bg-white/5 rounded-full border border-white/10 text-white hover:text-accent hover:border-accent hover:shadow-neon transition-all"
-                >
-                  <X size={24} strokeWidth={2.5} />
-                </button>
-              </div>
-
-              {/* NAV LINKS */}
-              <div className="flex flex-col gap-4 p-8">
+              <div className="p-8 pt-32 space-y-4 flex-1">
                 {navLinks.map((link, idx) => (
                   <motion.div
                     key={link.name}
@@ -364,28 +139,36 @@ const Navbar = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.1 }}
                   >
-                    <Link 
-                      to={link.path} 
+                    <Link
+                      to={link.path}
                       onClick={toggleMenu}
                       className="flex items-center justify-between py-4 group"
                     >
-                      <span className={`text-4xl font-black uppercase tracking-tighter ${location.pathname === link.path ? 'text-accent' : 'text-white'}`}>
+                      <span className="text-4xl font-black uppercase tracking-tighter text-white group-hover:text-accent transition-colors">
                         {link.name}
                       </span>
-                      <ChevronRight className={location.pathname === link.path ? 'text-accent' : 'text-gray-800'} />
                     </Link>
                   </motion.div>
                 ))}
               </div>
 
-              {/* BOTTOM ACTION */}
-              <div className="mt-auto p-8 bg-[#080808]">
-                <button className="w-full bg-accent text-black font-black py-5 rounded-2xl shadow-neon uppercase tracking-widest text-sm">
-                  Access Academy
-                </button>
-                <p className="text-[8px] text-gray-600 mt-6 text-center tracking-[0.5em] uppercase font-bold">
-                  System Version 2.0.4
-                </p>
+              <div className="p-8 bg-black/40">
+                {isLoggedIn ? (
+                  <Link
+                    to="/profile"
+                    onClick={toggleMenu}
+                    className="block w-full text-center bg-accent text-black font-black py-5 rounded-2xl shadow-neon uppercase tracking-widest text-sm"
+                  >
+                    My Profile
+                  </Link>
+                ) : (
+                  <button
+                    onClick={() => { openAuth(); toggleMenu(); }}
+                    className="w-full bg-accent text-black font-black py-5 rounded-2xl shadow-neon uppercase tracking-widest text-sm"
+                  >
+                    Join Elite
+                  </button>
+                )}
               </div>
             </motion.div>
           </>

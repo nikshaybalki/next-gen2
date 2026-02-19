@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { GlowingEffect } from '../components/ui/GlowingEffect';
 
 const DigitalProductsPage = () => {
   const [activeTab, setActiveTab] = useState('All');
@@ -11,7 +12,7 @@ const DigitalProductsPage = () => {
       category: "Templates",
       price: "₹499",
       rating: "4.9",
-      image: "/prod1.jpg", 
+      image: "/prod1.jpg",
       badge: "Best Seller"
     },
     {
@@ -32,18 +33,18 @@ const DigitalProductsPage = () => {
     }
   ];
 
-  const filteredProducts = activeTab === 'All' 
-    ? products 
+  const filteredProducts = activeTab === 'All'
+    ? products
     : products.filter(p => p.category === activeTab);
 
   return (
     <div className="min-h-screen bg-black pt-32 pb-20 px-6">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div>
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none"
@@ -61,11 +62,10 @@ const DigitalProductsPage = () => {
               <button
                 key={cat}
                 onClick={() => setActiveTab(cat)}
-                className={`px-5 py-2 rounded-xl text-[10px] font-black tracking-widest transition-all border ${
-                  activeTab === cat 
-                  ? 'bg-accent text-black border-accent shadow-neon' 
-                  : 'bg-transparent text-gray-500 border-white/10 hover:border-white/30'
-                }`}
+                className={`px-5 py-2 rounded-xl text-[10px] font-black tracking-widest transition-all border ${activeTab === cat
+                    ? 'bg-accent text-black border-accent shadow-neon'
+                    : 'bg-transparent text-gray-500 border-white/10 hover:border-white/30'
+                  }`}
               >
                 {cat.toUpperCase()}
               </button>
@@ -82,20 +82,44 @@ const DigitalProductsPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               whileHover={{ y: -10 }}
-              className="group relative bg-[#080808] border border-white/5 rounded-[2.5rem] p-4 transition-all duration-500 hover:border-accent/40"
+              className="group relative rounded-[2.5rem] transition-all duration-500"
             >
+              {/* 0. GLOWING EFFECT - Underneath Layer */}
+              <div className="absolute inset-0 rounded-[2.5rem] z-0 pointer-events-none">
+                <GlowingEffect 
+                  spread={40} 
+                  glow={true} 
+                  disabled={false} 
+                  proximity={64} 
+                  inactiveZone={0.01}
+                  borderWidth={3}
+                />
+              </div>
+
+              {/* 1. GLASS BACKGROUND LAYER */}
+              <div 
+                className="absolute inset-0 rounded-[2.5rem] backdrop-blur-xl z-0"
+                style={{
+                  background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.03) 100%)',
+                  boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255,255,255,0.05)',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                }}
+              />
+
+              {/* 2. CONTENT AREA */}
+              <div className="relative z-10 p-4 h-full">
               {/* COMPACT IMAGE STAGE */}
               <div className="relative h-64 w-full bg-[#0C0C0C] rounded-[2rem] overflow-hidden flex items-center justify-center border border-white/5">
                 {/* Background Glow */}
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                
+
                 {/* Floating Image Container - Controlled Size */}
-                <motion.div 
+                <motion.div
                   whileHover={{ scale: 1.1, rotate: 3 }}
                   className="relative z-10 w-32 h-44 md:w-40 md:h-52 overflow-hidden rounded-lg shadow-2xl border border-white/10"
                 >
-                  <img 
-                    src={product.image} 
+                  <img
+                    src={product.image}
                     alt={product.title}
                     className="w-full h-full object-cover"
                     onError={(e) => {
@@ -119,23 +143,24 @@ const DigitalProductsPage = () => {
                     <span className="text-white text-[10px] font-bold ml-1">{product.rating}</span>
                   </div>
                 </div>
-                
+
                 <h3 className="text-xl font-black text-white mb-8 group-hover:text-accent transition-colors leading-tight uppercase">
                   {product.title}
                 </h3>
-                
+
                 <div className="flex items-center justify-between pt-6 border-t border-white/5">
                   <div>
                     <p className="text-gray-500 text-[9px] uppercase font-bold tracking-widest mb-1">Price</p>
                     <span className="text-2xl font-black text-white">{product.price}</span>
                   </div>
-                  
-                  <motion.button 
+
+                  <motion.button
                     whileTap={{ scale: 0.95 }}
                     className="bg-white text-black px-8 py-3 rounded-2xl font-black text-[10px] tracking-widest uppercase hover:bg-accent transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-neon"
                   >
                     Purchase
                   </motion.button>
+                </div>
                 </div>
               </div>
             </motion.div>

@@ -27,7 +27,13 @@ const Vision = () => {
         </h2>
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-8 w-full relative z-10">
+      <div 
+        className="max-w-7xl mx-auto px-8 py-20 w-full relative z-10 border border-white/5 rounded-[3rem] backdrop-blur-sm"
+        style={{
+          background: 'linear-gradient(180deg, rgba(255,255,255,0.015) 0%, rgba(255,255,255,0.005) 100%)',
+          boxShadow: '0 0 40px rgba(0,0,0,0.5)'
+        }}
+      >
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
           {/* 2. ANIMATED VISUAL ELEMENT */}
@@ -41,7 +47,20 @@ const Vision = () => {
             {/* The "Glow Orb" */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-accent/20 rounded-full blur-[80px] animate-pulse" />
             
-            <div className="relative border border-accent/30 bg-black/50 backdrop-blur-xl p-8 rounded-2xl shadow-neon">
+            <div 
+              className="relative p-10 rounded-3xl backdrop-blur-xl overflow-hidden group transition-all duration-500 hover:scale-[1.01]"
+              style={{
+                background: 'linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.00) 100%)',
+                boxShadow: `
+                  0 4px 30px rgba(0,0,0,0.1),
+                  0 0 0 1px rgba(255,255,255,0.05) inset,
+                  0 1px 0 0 rgba(255,255,255,0.1) inset,
+                  0 -2px 20px 0 rgba(0, 247, 255, 0.15) inset
+                `
+              }}
+            >
+              {/* Top highlight for extra gloss */}
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-50" />
                <h3 className="text-accent font-black tracking-[0.5em] text-xs mb-6 uppercase">The Philosophy</h3>
                <p className="text-2xl md:text-3xl font-light leading-snug text-white">
                 "Stop chasing <span className="text-transparent font-bold" style={{ WebkitTextStroke: '1px #00F7FF' }}>Algorithms</span>, <br /> 

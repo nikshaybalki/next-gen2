@@ -22,11 +22,21 @@ export default {
         serif: ['"Playfair Display"', 'serif'],
         sans: ['"Inter"', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
+        clash: ['"Clash Display"', 'sans-serif'],
       },
       // Adding custom neon shadows for the "Glowing" effect
       boxShadow: {
         'neon': '0 0 15px rgba(0, 247, 255, 0.4)',
         'neon-strong': '0 0 30px rgba(0, 247, 255, 0.7)',
+      },
+      keyframes: {
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        }
+      },
+      animation: {
+        'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
       }
     },
   },

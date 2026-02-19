@@ -1,14 +1,20 @@
-import { motion, useMotionValue, useSpring, useInView } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useMotionValue, useSpring, useInView, useMotionValueEvent } from 'framer-motion';
+import { WavyBackground } from '../ui/WavyBackground';
 
 // Specialized Counter for that "Masterclass" feel
 const AnimatedNumber = ({ value, suffix = "" }) => {
   const ref = useRef(null);
+  const [display, setDisplay] = useState(0);
   const isVisible = useInView(ref, { once: true });
   const motionValue = useMotionValue(0);
   const springValue = useSpring(motionValue, {
     damping: 40,
     stiffness: 90,
+  });
+
+  useMotionValueEvent(springValue, "change", (latest) => {
+    setDisplay(Math.floor(latest));
   });
 
   useEffect(() => {
@@ -19,9 +25,7 @@ const AnimatedNumber = ({ value, suffix = "" }) => {
 
   return (
     <span ref={ref} className="tabular-nums">
-      <motion.span>
-        {springValue.on("render", (v) => Math.floor(v))}
-      </motion.span>
+      {display}
       {suffix}
     </span>
   );
@@ -33,23 +37,18 @@ const Impact = () => {
     { label: "Students Trained", value: 12, suffix: "12K+" },
     { label: "Organic Reach", value: 85, suffix: "6M+" },
     { label: "Community", value: 750, suffix: "50K+" },
-    { label: "Success Rate", value: 96, suffix: "80%" },
   ];
 
   return (
-    <section className="relative py-24 bg-black overflow-hidden border-y border-white/5">
-      {/* 1. CYBER GRID BACKGROUND */}
-      <div 
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: `linear-gradient(#00F7FF 1px, transparent 1px), linear-gradient(90deg, #00F7FF 1px, transparent 1px)`,
-          backgroundSize: '40px 40px'
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-0" />
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+    <section className="relative overflow-hidden border-y border-white/5">
+      <WavyBackground 
+        containerClassName="min-h-[600px] flex items-center justify-center py-24"
+        className="max-w-7xl mx-auto px-6"
+        waveOpacity={1.0}
+        blur={6}
+        speed="slow"
+      >
+        <div className="flex flex-wrap justify-center gap-10 md:gap-20">
           {stats.map((item, idx) => (
             <motion.div
               key={idx}
@@ -57,30 +56,35 @@ const Impact = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.15 }}
-              className="relative group p-8 rounded-3xl border border-white/5 bg-white/5 backdrop-blur-sm hover:border-accent/40 transition-colors duration-500"
+              className="relative group w-72 p-8 rounded-3xl overflow-hidden backdrop-blur-2xl transition-all duration-500 hover:-translate-y-2"
+              style={{
+                background: 'linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%)',
+                boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255,255,255,0.02)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+              }}
             >
+              {/* Inner highlight for "Glass" edge */}
+              <div className="absolute inset-0 border border-white/10 rounded-3xl pointer-events-none" />
+
               {/* Subtle Glowing Pulse behind the number */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-accent/10 rounded-full blur-2xl group-hover:bg-accent/20 transition-all" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-accent/10 rounded-full blur-2xl group-hover:bg-accent/20 transition-all opacity-0 group-hover:opacity-100" />
 
-              <h4 className="text-5xl md:text-7xl font-black text-white mb-2 tracking-tighter">
-                <AnimatedNumber value={item.value} suffix={item.suffix} />
-              </h4>
-              
-              <div className="flex items-center gap-2">
-                <div className="w-4 h-[2px] bg-accent shadow-[0_0_8px_#00F7FF]" />
-                <p className="text-accent text-[10px] md:text-xs font-black tracking-[0.3em] uppercase">
-                  {item.label}
-                </p>
-              </div>
+              <div className="relative z-10">
+                <h4 className="text-5xl font-black text-white mb-3 tracking-tighter">
+                  <AnimatedNumber value={item.value} suffix={item.suffix} />
+                </h4>
 
-              {/* Decorative Corner Accent */}
-              <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="w-2 h-2 border-t-2 border-r-2 border-accent" />
+                <div className="flex items-center gap-3">
+                  <div className="w-6 h-[2px] bg-accent shadow-[0_0_8px_#00F7FF]" />
+                  <p className="text-gray-300 text-xs font-bold tracking-[0.25em] uppercase group-hover:text-white transition-colors">
+                    {item.label}
+                  </p>
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
-      </div>
+      </WavyBackground>
     </section>
   );
 };

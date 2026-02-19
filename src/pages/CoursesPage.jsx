@@ -103,39 +103,11 @@
 
 
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom'; // 1. Import Link
+import { Link } from 'react-router-dom';
+import { allCourses } from '../data/coursesData';
 
 const CoursesPage = () => {
-  const allCourses = [
-    {
-      title: "Viral Blueprint",
-      // 2. Add an ID that matches the URL param
-      id: "viral-blueprint", 
-      category: "Content Strategy",
-      level: "Intermediate",
-      duration: "6 Weeks",
-      price: "₹9,999",
-      image: "/course1.jpg"
-    },
-    {
-      title: "AI Creator Pro",
-      id: "ai-creator-pro",
-      category: "Automation",
-      level: "All Levels",
-      duration: "4 Weeks",
-      price: "₹7,499",
-      image: "/course2.jpg"
-    },
-    {
-      title: "Monetization Mastery",
-      id: "monetization-mastery",
-      category: "Business",
-      level: "Advanced",
-      duration: "8 Weeks",
-      price: "₹14,999",
-      image: "/course3.jpg"
-    }
-  ];
+  // Use the central data source
 
   return (
     <div className="min-h-screen bg-black pt-32 pb-20 px-6">
@@ -181,14 +153,13 @@ const CoursesPage = () => {
                 {/* Course Details */}
                 <div className="p-8">
                   <div className="flex justify-between items-center mb-4">
-                    <span className="text-gray-500 text-xs font-bold uppercase tracking-widest">{course.level}</span>
-                    <span className="text-accent font-mono text-sm">{course.duration}</span>
+                    <span className="text-gray-500 text-xs font-bold uppercase tracking-widest">{course.edition}</span>
+                    <span className="text-accent font-mono text-sm">{course.stats.hours}</span>
                   </div>
-                  <h3 className="text-2xl font-black mb-6 group-hover:text-accent transition-colors">{course.title}</h3>
+                  <h3 className="text-2xl font-black mb-6 group-hover:text-accent transition-colors h-14 overflow-hidden">{course.title}</h3>
                   
                   <div className="flex items-center justify-between border-t border-white/5 pt-6">
-                    <span className="text-2xl font-black text-white">{course.price}</span>
-                    {/* The button is now inside the Link, so it will trigger the navigation */}
+                    <span className="text-2xl font-black text-white">{course.pricing?.currentPrice || '₹9,999'}</span>
                     <span className="text-accent font-black text-xs tracking-[0.2em] border-b border-accent/30 hover:border-accent transition-all pb-1 uppercase">
                       View Details
                     </span>

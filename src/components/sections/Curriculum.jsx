@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { GlowingEffect } from '../ui/GlowingEffect';
+import { cn } from '../../lib/utils';
 
 const Curriculum = () => {
   const steps = [
@@ -31,10 +33,10 @@ const Curriculum = () => {
   return (
     <section className="relative py-32 bg-black px-6 overflow-hidden">
       <div className="max-w-5xl mx-auto">
-        
+
         {/* Header */}
         <div className="text-center mb-24">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             className="text-accent font-black tracking-[0.5em] text-xs uppercase mb-4"
@@ -48,7 +50,7 @@ const Curriculum = () => {
         <div className="relative">
           {/* Central Vertical Line */}
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[1px] bg-white/10 -translate-x-1/2">
-            <motion.div 
+            <motion.div
               initial={{ height: 0 }}
               whileInView={{ height: '100%' }}
               transition={{ duration: 2, ease: "linear" }}
@@ -58,34 +60,54 @@ const Curriculum = () => {
 
           <div className="space-y-20">
             {steps.map((step, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, x: idx % 2 === 0 ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: idx * 0.1 }}
-                className={`relative flex flex-col md:flex-row items-center gap-8 ${
-                  idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                }`}
+                className={`relative flex flex-col md:flex-row items-center gap-8 ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                  }`}
               >
                 {/* Content Card */}
-                <div className="w-full md:w-1/2 p-8 rounded-3xl bg-[#080808] border border-white/5 hover:border-accent/30 transition-colors group">
-                  <span className="text-accent font-black text-xs tracking-widest block mb-2">{step.phase}</span>
-                  <h4 className="text-2xl font-bold mb-4 group-hover:text-accent transition-colors">{step.title}</h4>
-                  <p className="text-gray-400 text-sm leading-relaxed mb-6">{step.desc}</p>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {step.topics.map((topic, tIdx) => (
-                      <span key={tIdx} className="text-[10px] font-bold border border-white/10 px-3 py-1 rounded-full text-white/60">
-                        {topic}
-                      </span>
-                    ))}
+                <div className="w-full md:w-1/2 relative group transition-all duration-500 hover:-translate-y-1">
+                  {/* Glowing Effect Layer */}
+                  <div className="absolute inset-0 rounded-3xl z-0">
+                    <GlowingEffect
+                      spread={40}
+                      glow={true}
+                      disabled={false}
+                      proximity={64}
+                      inactiveZone={0.01}
+                      borderWidth={2}
+                    />
+                  </div>
+
+                  {/* Glass Layer + Content */}
+                  <div
+                    className="relative z-10 p-8 rounded-3xl overflow-hidden backdrop-blur-xl border border-white/10"
+                    style={{
+                      background: 'linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%)',
+                      boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255,255,255,0.05)',
+                    }}
+                  >
+                    <span className="text-accent font-black text-xs tracking-widest block mb-2">{step.phase}</span>
+                    <h4 className="text-2xl font-bold mb-4 group-hover:text-accent transition-colors">{step.title}</h4>
+                    <p className="text-gray-400 text-sm leading-relaxed mb-6">{step.desc}</p>
+
+                    <div className="flex flex-wrap gap-2">
+                      {step.topics.map((topic, tIdx) => (
+                        <span key={tIdx} className="text-[10px] font-bold border border-white/10 px-3 py-1 rounded-full text-white/60">
+                          {topic}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
                 {/* Center Node (Dot) */}
                 <div className="absolute left-4 md:left-1/2 w-3 h-3 bg-black border-2 border-accent rounded-full -translate-x-1/2 z-10 shadow-[0_0_10px_#00F7FF]">
-                  <motion.div 
+                  <motion.div
                     animate={{ scale: [1, 1.5, 1] }}
                     transition={{ repeat: Infinity, duration: 2 }}
                     className="absolute inset-0 bg-accent rounded-full opacity-30"

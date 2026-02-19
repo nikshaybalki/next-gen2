@@ -1,9 +1,8 @@
 import Hero from '../components/sections/Hero';
 import Vision from '../components/sections/Vision';
 import Impact from '../components/sections/Impact';
-import Courses from '../components/sections/Courses';
+import CourseSection from '../components/sections/CourseSection';
 import Curriculum from '../components/sections/Curriculum';
-import DigitalProduct from '../components/sections/DigitalProduct';
 import Mentor from '../components/sections/Mentor';
 import FAQ from '../components/sections/FAQ';
 
@@ -13,9 +12,8 @@ const Home = () => {
       <Hero />
       <Vision />
       <Impact />
-      <Courses />
+      <CourseSection />
       <Curriculum />
-      <DigitalProduct />
       <Mentor />
       <FAQ />
     </main>

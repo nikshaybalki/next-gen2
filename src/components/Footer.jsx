@@ -1,13 +1,15 @@
+import React from 'react';
 import { motion } from 'framer-motion';
-import { FaXTwitter, FaInstagram, FaFacebookF, FaWhatsapp, FaLinkedinIn } from 'react-icons/fa6';
+import { FaInstagram, FaWhatsapp, FaLinkedinIn, FaYoutube } from 'react-icons/fa6';
 
 const Footer = () => {
-  const linkedinUrl = "https://www.linkedin.com/in/nikshay-balki-7b2909321";
+  const linkedinUrl = "https://www.linkedin.com/in/vaibhav-kadnar-016074189/";
+  const youtubeUrl = "https://www.youtube.com/@VaibhavKadnar";
+  const instagramUrl = "https://www.instagram.com/vaibhavkadnarofficial/";
 
   const socialLinks = [
-    { icon: <FaXTwitter />, link: "#", color: "#1DA1F2" },
-    { icon: <FaInstagram />, link: "#", color: "#E1306C" },
-    { icon: <FaFacebookF />, link: "#", color: "#1877F2" },
+    { icon: <FaYoutube />, link: youtubeUrl, color: "#FF0000" },
+    { icon: <FaInstagram />, link: instagramUrl, color: "#E1306C" },
     { icon: <FaWhatsapp />, link: "#", color: "#25D366" },
     { icon: <FaLinkedinIn />, link: linkedinUrl, color: "#0077B5" },
   ];
