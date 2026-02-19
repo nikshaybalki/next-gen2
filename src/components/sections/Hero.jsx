@@ -54,27 +54,27 @@ const Hero = () => {
       <div className="absolute inset-0 bg-noise opacity-[0.05] pointer-events-none z-[1]"></div>
 
       {/* 2. INITIAL VIEWPORT CONTENT (STICKY/CENTERED) */}
-      <div className="sticky top-0 h-screen w-full flex items-center justify-center px-6">
+      <div className="sticky top-0 h-[100svh] w-full flex items-center justify-center px-6">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           style={{ y: mainContentY }}
-          className="relative z-10 text-center max-w-6xl"
+          className="relative z-10 text-center max-w-6xl w-full"
         >
           <motion.div variants={itemVariants} className="mb-12">
             <h1 className="flex flex-col items-center justify-center leading-none">
-               <span className="text-[6rem] md:text-[9rem] font-clash font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white/40 via-white to-white drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+              <span className="text-[clamp(3.5rem,14vw,8rem)] md:text-[9rem] font-display font-black tracking-tighter text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.1)] uppercase">
                 NEXGEN
-               </span>
-               <span className="text-[2rem] md:text-[3rem] font-clash font-medium tracking-[0.5em] text-transparent bg-clip-text bg-gradient-to-r from-accent to-white mt-4 opacity-80">
+              </span>
+              <span className="text-[clamp(1rem,4vw,3rem)] md:text-[2.5rem] font-display font-medium tracking-[0.5em] text-accent mt-4 uppercase">
                 ACADEMY
-               </span>
+              </span>
             </h1>
           </motion.div>
 
           <motion.div variants={itemVariants} className="flex justify-center items-center">
-            <PlasticButton
+            <button
               onClick={() => {
                 if (isLoggedIn) {
                   const coursesSection = document.getElementById('courses');
@@ -83,9 +83,10 @@ const Hero = () => {
                   openAuth();
                 }
               }}
+              className="h-[56px] px-12 bg-accent text-black font-label text-[14px] font-bold uppercase tracking-widest rounded-full shadow-[0_0_20px_rgba(0,229,255,0.3)] hover:shadow-[0_0_30px_rgba(0,229,255,0.5)] transition-all"
             >
               JOIN NOW
-            </PlasticButton>
+            </button>
           </motion.div>
 
           {/* SECONDARY CONTENT (REVEALED ON SCROLL) */}
@@ -94,15 +95,15 @@ const Hero = () => {
               y: secondaryContentY,
               opacity: secondaryContentOpacity
             }}
-            className="mt-24 space-y-6 font-sans"
+            className="mt-24 space-y-6 font-display"
           >
-            <p className="text-accent uppercase tracking-[1em] text-[10px] font-black">
+            <p className="text-accent uppercase tracking-[0.8em] md:tracking-[1em] text-[10px] font-bold">
               The Step-by-Step Masterclass
             </p>
             <h2 className="text-white text-2xl md:text-5xl font-light italic leading-relaxed">
               "Take You from <span className="font-bold text-accent not-italic underline decoration-accent/30 underline-offset-8">Beginner to Pro</span>"
             </h2>
-            <div className="flex justify-center gap-4 text-white/40 text-sm font-black tracking-[0.5em] mt-8 uppercase">
+            <div className="flex justify-center gap-4 text-white/40 text-[10px] md:text-sm font-bold tracking-[0.3em] md:tracking-[0.5em] mt-8 uppercase font-label">
               <span>CREATE</span>
               <span className="text-accent">•</span>
               <span>BUILD</span>
@@ -112,6 +113,7 @@ const Hero = () => {
           </motion.div>
         </motion.div>
       </div>
+
 
       {/* 3. OPTIONAL: SCROLL INDICATOR */}
       <motion.div
