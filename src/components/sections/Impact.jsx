@@ -48,7 +48,7 @@ const Impact = () => {
         blur={6}
         speed="slow"
       >
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-10 stats-grid">
           {stats.map((item, idx) => (
             <motion.div
               key={idx}
@@ -56,17 +56,14 @@ const Impact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.15 }}
-              className="relative group p-8 rounded-[16px] overflow-hidden backdrop-blur-2xl transition-all duration-500 bg-[#181818] border border-white/5"
+              className="relative group p-8 rounded-[16px] overflow-hidden backdrop-blur-2xl transition-all duration-500 bg-[#181818] border border-white/5 stat-card"
             >
-              <div className="relative z-10">
-                <h4 className="text-[3.5rem] font-display font-bold text-white mb-2 leading-none">
+              <div className="relative z-10 flex flex-row items-center justify-between w-full">
+                <h4 className="text-[3.5rem] font-display font-bold text-white mb-2 leading-none stat-number">
                   <AnimatedNumber value={item.value} suffix={item.suffix} />
                 </h4>
 
-                {/* 3px cyan underline (2rem wide) */}
-                <div className="w-8 h-[3px] bg-accent mb-4 shadow-[0_0_8px_rgba(0,229,255,0.5)]" />
-
-                <p className="text-accent text-[0.65rem] font-mono font-bold tracking-[0.15em] uppercase">
+                <p className="text-accent text-[0.65rem] font-mono font-bold tracking-[0.15em] uppercase stat-label">
                   {item.label}
                 </p>
               </div>

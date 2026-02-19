@@ -38,7 +38,7 @@ const DigitalProduct = () => {
         </div>
 
         {/* Filter bar (mobile-first horizontal scroll) */}
-        <div className="flex gap-3 overflow-x-auto pb-8 no-scrollbar scroll-smooth" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+        <div className="flex gap-3 overflow-x-auto pb-8 no-scrollbar scroll-smooth filter-bar" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           {['All', 'E-Books', 'Templates', 'Blueprints', 'Elite'].map((category, i) => (
             <button
               key={category}

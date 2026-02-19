@@ -49,7 +49,7 @@ const Curriculum = () => {
         {/* Timeline Path */}
         <div className="relative">
           {/* Central Vertical Line */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[1px] bg-white/10 -translate-x-1/2">
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[1px] bg-white/10 -translate-x-1/2 timeline-line">
             <motion.div
               initial={{ height: 0 }}
               whileInView={{ height: '100%' }}
@@ -66,7 +66,7 @@ const Curriculum = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className={`relative flex flex-col md:flex-row items-center gap-8 ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                className={`relative flex flex-col md:flex-row items-center gap-8 phase-card ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                   }`}
               >
                 {/* Content Card */}

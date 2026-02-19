@@ -63,11 +63,11 @@ const Hero = () => {
           className="relative z-10 text-center max-w-6xl w-full"
         >
           <motion.div variants={itemVariants} className="mb-12">
-            <h1 className="flex flex-col items-center justify-center leading-none">
+            <h1 className="flex flex-col items-center justify-center leading-none hero-title">
               <span className="text-[clamp(3.5rem,14vw,8rem)] md:text-[9rem] font-display font-black tracking-tighter text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.1)] uppercase">
                 NEXGEN
               </span>
-              <span className="text-[clamp(1rem,4vw,3rem)] md:text-[2.5rem] font-display font-medium tracking-[0.5em] text-accent mt-4 uppercase">
+              <span className="text-[clamp(1rem,4vw,3rem)] md:text-[2.5rem] font-display font-medium tracking-[0.5em] text-accent mt-4 uppercase hero-subtitle">
                 ACADEMY
               </span>
             </h1>

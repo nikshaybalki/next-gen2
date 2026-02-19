@@ -30,14 +30,14 @@ const CourseSection = () => {
         </div>
 
         {/* Course Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 courses-grid">
           {featuredCourses.map((course, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="group relative bg-[#111111] border border-white/5 rounded-[20px] overflow-hidden"
+              className="group relative bg-[#111111] border border-white/5 rounded-[20px] overflow-hidden course-card"
             >
               <Link to={`/course/${course.id}`} className="block">
                 {/* Course Thumbnail */}

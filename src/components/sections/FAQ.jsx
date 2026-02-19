@@ -47,10 +47,10 @@ const FinalFooter = () => {
   return (
     <footer className="bg-black pt-32 pb-12 px-6">
       {/* 1. FAQ SECTION */}
-      <div className="max-w-4xl mx-auto mb-40">
+      <div className="max-w-4xl mx-auto mb-40 faq">
         <div className="text-center mb-16">
-          <h2 className="text-accent text-[10px] font-label font-bold tracking-[0.5em] uppercase mb-4">Questions</h2>
-          <h3 className="text-[2.2rem] md:text-[5rem] font-display font-black uppercase leading-none">
+          <h2 className="text-accent text-[10px] font-label font-bold tracking-[0.5em] uppercase mb-4 section-label">Questions</h2>
+          <h3 className="text-[2.2rem] md:text-[5rem] font-display font-black uppercase leading-none section-title">
             SOLVING YOUR <br />
             <span className="text-transparent" style={{ WebkitTextStroke: '1.5px var(--color-cyan)' }}>DOUBTS</span>
           </h3>
@@ -62,7 +62,7 @@ const FinalFooter = () => {
 
       {/* 2. FINAL CALL TO ACTION (CTA) */}
       <div
-        className="max-w-7xl mx-auto border border-accent/20 rounded-[24px] md:rounded-[3rem] p-8 md:p-24 text-center relative overflow-hidden mb-32"
+        className="max-w-7xl mx-auto border border-accent/20 rounded-[24px] md:rounded-[3rem] p-8 md:p-24 text-center relative overflow-hidden mb-32 cta-banner"
         style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(0,100,80,0.25) 0%, transparent 70%)' }}
       >
         <h4 className="text-[2.5rem] md:text-[6rem] font-display font-black mb-8 tracking-tighter uppercase leading-[0.9]">

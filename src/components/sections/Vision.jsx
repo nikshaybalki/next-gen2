@@ -34,7 +34,7 @@ const Vision = () => {
           boxShadow: '0 0 40px rgba(0,0,0,0.5)'
         }}
       >
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 md:gap-16 items-center vision-wrapper">
 
           {/* 1. PHILOSOPHY CARD */}
           <motion.div
@@ -44,13 +44,13 @@ const Vision = () => {
             className="w-full"
           >
             <div
-              className="relative p-8 md:p-12 rounded-[20px] overflow-hidden group"
+              className="relative p-8 md:p-12 rounded-[20px] overflow-hidden group philosophy-section"
               style={{
                 background: 'linear-gradient(135deg, rgba(0,100,80,0.4) 0%, rgba(0,30,30,0.8) 100%)',
                 boxShadow: '0 20px 40px rgba(0,0,0,0.3), inset 0 0 0 1px rgba(255,255,255,0.05)'
               }}
             >
-              <h3 className="text-accent font-label font-bold tracking-[0.2em] text-[10px] mb-6 uppercase">THE PHILOSOPHY</h3>
+              <h3 className="text-accent font-label font-bold tracking-[0.2em] text-[10px] mb-6 uppercase section-label">THE PHILOSOPHY</h3>
               <p className="text-[1.5rem] md:text-[2rem] font-display font-bold italic leading-tight text-white">
                 "Stop chasing <span className="text-accent">Algorithms</span>, <br />
                 Start building <span className="text-accent">Systems</span>."
@@ -65,7 +65,7 @@ const Vision = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-[2.2rem] md:text-[5rem] font-display font-black mb-4 uppercase leading-none tracking-tighter">
+              <h2 className="text-[2.2rem] md:text-[5rem] font-display font-black mb-4 uppercase leading-none tracking-tighter section-title">
                 OUR <span className="text-accent">VISION</span>
               </h2>
               <div className="h-[3px] w-10 bg-accent shadow-[0_0_10px_rgba(0,229,255,0.5)]" />

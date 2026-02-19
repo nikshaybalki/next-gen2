@@ -18,14 +18,14 @@ const Mentor = () => {
       {/* Cinematic Background Accents */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto flex flex-col items-start">
+      <div className="max-w-7xl mx-auto flex flex-col items-start instructor">
 
         {/* TOP SECTION: IMAGE (Mobile First) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="w-full aspect-square relative group mb-12"
+          className="w-full aspect-square relative group mb-12 instructor-image"
         >
           <div className="relative h-full w-full rounded-[16px] overflow-hidden border border-accent/20 grayscale group-hover:grayscale-0 transition-all duration-1000">
             <img src="hero-bg.png" alt="Vaibhav Kadnar" className="w-full h-full object-cover" />
