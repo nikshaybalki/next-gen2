@@ -18,7 +18,7 @@ export const WavyBackground = ({
   const noise = createNoise3D();
   let w, h, nt, i, x, ctx, canvas;
   const canvasRef = useRef(null);
-  
+
   const getSpeed = () => {
     switch (speed) {
       case "slow":
@@ -90,8 +90,8 @@ export const WavyBackground = ({
   useEffect(() => {
     setIsSafari(
       typeof window !== "undefined" &&
-        navigator.userAgent.includes("Safari") &&
-        !navigator.userAgent.includes("Chrome")
+      navigator.userAgent.includes("Safari") &&
+      !navigator.userAgent.includes("Chrome")
     );
   }, []);
 

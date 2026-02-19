@@ -6,7 +6,7 @@ const ProfilePage = () => {
   return (
     <div className="min-h-screen bg-black pt-32 pb-20 px-6">
       <div className="max-w-3xl mx-auto bg-[#0A0A0A] border border-white/5 rounded-[3rem] p-12 relative overflow-hidden">
-        
+
         {/* Glow Decor */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 blur-[100px] pointer-events-none" />
 
@@ -22,9 +22,9 @@ const ProfilePage = () => {
         </div>
 
         <div className="space-y-6">
-          <InfoRow icon={<User size={18}/>} label="Full Name" value="Nikshay Balki" />
-          <InfoRow icon={<Mail size={18}/>} label="Email Address" value="nikshay.balki@nexgen.com" />
-          <InfoRow icon={<Shield size={18}/>} label="Account Status" value="Elite Member" isAccent />
+          <InfoRow icon={<User size={18} />} label="Full Name" value="Nikshay Balki" />
+          <InfoRow icon={<Mail size={18} />} label="Email Address" value="nikshay.balki@nexgen.com" />
+          <InfoRow icon={<Shield size={18} />} label="Account Status" value="Elite Member" isAccent />
         </div>
 
         <div className="mt-12 pt-12 border-t border-white/5 flex gap-4">
